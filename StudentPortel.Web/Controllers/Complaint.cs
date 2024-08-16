@@ -41,7 +41,7 @@ namespace StudentPortel.Web.Controllers
                 dbContext.Addcomplaint.Add(model);
                 await dbContext.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); ;
             }
 
             return View(model); 
