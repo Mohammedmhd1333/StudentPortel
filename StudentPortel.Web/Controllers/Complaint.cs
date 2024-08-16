@@ -28,7 +28,8 @@ namespace StudentPortel.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.Id = Guid.NewGuid();
+                //haloo................
+                model.Id = Guid.NewGuid(); 
                 model.CreatedDate = DateTime.UtcNow;
                 model.EmployeeName = model.EmployeeName;
                 model.EmployeeId = HttpContext.Session.GetString("EmployeeId"); 
