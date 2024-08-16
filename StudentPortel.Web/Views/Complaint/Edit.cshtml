@@ -1,0 +1,26 @@
+﻿@model StudentPortel.Web.Models.Entities.Addcomplaint
+
+@{
+    ViewData["Title"] = "Edit Complaint";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Remark" class="control-label"></label>
+        <textarea asp-for="Remark" class="form-control"></textarea>
+        <span asp-validation-for="Remark" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Status" class="control-label"></label>
+        <input asp-for="Status" class="form-control" />
+        <span asp-validation-for="Status" class="text-danger"></span>
+    </div>
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+</form>
+
+<a href="@Url.Action("Details", new { id = Model.Id })" class="btn btn-secondary">Back to Details</a>

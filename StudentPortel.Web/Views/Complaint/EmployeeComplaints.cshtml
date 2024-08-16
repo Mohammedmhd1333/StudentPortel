@@ -1,0 +1,42 @@
+﻿@model IEnumerable<StudentPortel.Web.Models.Entities.Addcomplaint>
+
+@{
+    if(  ViewBag.hallo != null)
+    {
+        
+    }
+}
+
+<h2>Your Complaints</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Complaint ID</th>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Work Location</th>
+            <th>suggestions</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var complaint in Model)
+
+        {
+            <tr>
+                <td>@complaint.Id</td>
+                <td>@complaint.EmployeeName</td>
+                <td>@complaint.Department</td>
+                <td>@complaint.WorkLocation</td>
+                <td>@complaint.suggestions</td>
+                <td>@complaint.Status</td>
+                @* <td>
+                    <a href="@Url.Action("Details", new { id = complaint.Id })">View</a> |
+                    <a href="@Url.Action("Edit", new { id = complaint.Id })">Edit</a>
+                </td> *@
+            </tr>
+        }
+    </tbody>
+</table>

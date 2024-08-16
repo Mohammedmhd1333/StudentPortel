@@ -1,0 +1,92 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@* @model List<StudentPortel.Web.Models.Entities.StudentEmployeeViewModel> *@
+@* @model List<StudentPortel.Web.Models.Entities.Employee> *@
+   @model StudentPortel.Web.Models.Entities.StudentEmployeeViewModel
+
+
+<h1>Student List</h1>
+
+<form asp-controller="Students" asp-action="PostList" method="get">
+    <div class="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Search by Name or Subject" value="@ViewData["CurrentFilter"]">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Subscribed</th>
+            <th>Job</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var student in Model.Students)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.Phone</td>
+                <td>@student.Subscribed</td>
+                <td>@student.Job</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<h1>Employee List</h1>
+
+<form asp-controller="Students" asp-action="PostList" method="get">
+    <div class="form-group">
+        <input type="text" name="searchString" class="form-control" placeholder="Search by Name or Subject" value="@ViewData["CurrentFilter"]">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Subject</th>
+            <th>Job</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var employee in Model.Employees)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Phone</td>
+                <td>@employee.Subjet</td>
+                <td>@employee.Job</td>
+               @*  <td>
+                    <a class="btn btn-primary" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                </td> *@
+            </tr>
+        }
+
+    </tbody>
+
+
+</table>

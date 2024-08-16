@@ -1,0 +1,67 @@
+﻿@model IEnumerable<StudentPortel.Web.Models.Entities.Addcomplaint>
+
+@{
+    var employeeId = TempData["hallo"];
+
+    if (employeeId.ToString() == "EMP004")
+    {
+        Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+}
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // Check if employeeId is not null or undefined
+            var employeeId = '@employeeId';
+
+            // if (employeeId) {
+            //     // Display the EmployeeId in an alert box
+            //     alert("Employee ID: " + employeeId);
+            // } else {
+            //     alert("Employee ID is not available.");
+            // }
+        });
+    </script>
+}
+
+
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Created Date</th>
+            <th>Employee Id</th>
+            <th>Employee Name</th>
+            <th>Department</th>
+            <th>Work Location</th>
+            <th>Suggestions</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var complaint in Model)
+        {
+            <tr>
+                <td>@complaint.CreatedDate.ToString("MMM dd, yyyy")</td>
+                <td>@complaint.EmployeeId</td>
+                <td>@complaint.EmployeeName</td>
+                <td>@complaint.Department</td>
+                <td>@complaint.WorkLocation</td>
+                <td>@complaint.suggestions</td>
+                <td>@complaint.Status</td>
+                <td>
+                    <a href="@Url.Action("Details", new { id = complaint.Id })" class="btn btn-info">Show</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
