@@ -28,6 +28,7 @@ namespace StudentPortel.Web.Controllers
         {
             if (ModelState.IsValid)
             {
+
                 //haloo................cc
                 model.Id = Guid.NewGuid(); 
                 model.CreatedDate = DateTime.UtcNow;
